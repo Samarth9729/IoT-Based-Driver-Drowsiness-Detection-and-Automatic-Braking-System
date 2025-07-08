@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -77.4, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 86.6, "left": 316.8, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 233.6,
+      "left": 144.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -93.6,
+      "left": 222.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -51.6,
+      "left": 368.6,
+      "attrs": { "color": "limegreen" }
+    }
+  ],
+  "connections": [
+    [ "relay1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "relay1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "relay1:COM", "uno:5V", "green", [ "h0" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "ldr1:GND", "uno:GND.3", "black", [ "h0" ] ],
+    [ "led2:A", "relay1:NO", "green", [ "v0" ] ],
+    [ "led2:C", "uno:GND.3", "green", [ "v0" ] ],
+    [ "ldr1:DO", "uno:3", "green", [ "h0" ] ],
+    [ "relay1:IN", "uno:13", "green", [ "h0" ] ],
+    [ "bz1:2", "relay1:NO", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
